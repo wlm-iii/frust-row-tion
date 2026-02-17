@@ -12,7 +12,7 @@ class TestActionSnapShot(unittest.TestCase):
             legs=0.0,
             body=0.0,
             arms=0.0,
-            handle_height=0.0,
+            handle=0.0,
             toggle_feather=False,
         )
         data.update(overrides)
@@ -20,12 +20,12 @@ class TestActionSnapShot(unittest.TestCase):
 
     def test_constructor_with_valid_values(self):
         action_snapshot = self.make_valid_act_snap(
-            legs=-1.0, body=-0.5, arms=0.5, handle_height=1.0, toggle_feather=True
+            legs=-1.0, body=-0.5, arms=0.5, handle=1.0, toggle_feather=True
         )
         self.assertEqual(action_snapshot.legs, -1.0)
         self.assertEqual(action_snapshot.body, -0.5)
         self.assertEqual(action_snapshot.arms, 0.5)
-        self.assertEqual(action_snapshot.handle_height, 1.0)
+        self.assertEqual(action_snapshot.handle, 1.0)
         self.assertTrue(action_snapshot.toggle_feather)
 
     def test_axis_boundaries_allowed(self):
@@ -35,7 +35,7 @@ class TestActionSnapShot(unittest.TestCase):
                     legs=v,
                     body=v,
                     arms=v,
-                    handle_height=v,
+                    handle=v,
                     toggle_feather=False,
                 )
 
